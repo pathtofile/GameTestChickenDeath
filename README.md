@@ -40,6 +40,11 @@ recieves fatal damage by a player:
 }
 ```
 
+If you wanted to trigger only when killed by a specific weapon, you can add this to `on_damage:filters`:
+```jsonc
+{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "bucket:0"}
+```
+
 ## GameTest dataDrivenEntityTriggerEvent
 We then have a GameTest script that subscribes to the new event `dataDrivenEntityTriggerEvent`. This was introduces
 in Beta in January 2022, so it's super new, and may change and break stuff before it's out of Beta.
