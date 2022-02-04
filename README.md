@@ -10,7 +10,7 @@ To make this work, there are two parts:
 ## Chicken entity JSON
 We altered the Chicken's Behaviour JSON to trigger a new (empty) event when it
 recieved fatal damage:
-```json
+```jsonc
 {
 "components": {
     // ...
