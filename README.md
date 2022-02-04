@@ -9,22 +9,32 @@ To make this work, there are two parts:
 
 ## Chicken entity JSON
 We altered the Chicken's Behaviour JSON to trigger a new (empty) event when it
-recieved fatal damage:
+recieves fatal damage by a player:
 ```jsonc
 {
 "components": {
     // ...
     "minecraft:damage_sensor": {
-        "triggers": {
+        "triggers": [
+          {
             "on_damage": {
-            "filters": {
-            "test": "has_damage",
-            "value": "fatal"
-            },
-            "event": "special_death_event",
-            "target": "self"
+              "filters": [
+                {
+                  "test": "has_damage",
+                  "value": "fatal"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                }
+              ],
+              "event": "special_death_event",
+              "target": "self"
             }
-        }
+          }
+          // ...
+        ]
     }
     // ...
 },

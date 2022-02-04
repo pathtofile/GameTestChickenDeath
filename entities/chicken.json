@@ -119,16 +119,29 @@
         "value": 0.25
       },
       "minecraft:damage_sensor": {
-        "triggers": {
-          "on_damage": {
-            "filters": {
-              "test": "has_damage",
-              "value": "fatal"
-            },
-            "event": "special_death_event",
-            "target": "self"
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": [
+                {
+                  "test": "has_damage",
+                  "value": "fatal"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                }
+              ],
+              "event": "special_death_event",
+              "target": "self"
+            }
           }
-        }
+        ]
       },
       "minecraft:leashable": {
         "soft_distance": 4.0,
