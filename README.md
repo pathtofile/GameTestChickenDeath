@@ -66,6 +66,6 @@ world.events.dataDrivenEntityTriggerEvent.subscribe((eventData) => {
   // to further filter for a specific chicken
 
   // Check death event, do stuff here...
-  dim.runCommand(`say "ent ${entity_type} | event ${event_name}"`);
+  world.getDimension("overworld").runCommand(`say "ent ${entity_type} | event ${event_name}"`);
 });
 ```
