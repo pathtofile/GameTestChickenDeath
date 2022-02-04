@@ -14,6 +14,9 @@ world.events.dataDrivenEntityTriggerEvent.subscribe((eventData) => {
     return;
   }
 
+  // Can use entity.nameTag or entity.hasTag(...) or entity.hasComponent(...)
+  // to further filter for a specific chicken
+
   // Check death event, do stuff here...
   dim.runCommand(`say "ent ${entity_type} | event ${event_name}"`);
 });
