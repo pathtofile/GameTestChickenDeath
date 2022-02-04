@@ -18,17 +18,12 @@ recieves fatal damage by a player:
         "triggers": [
           {
             "on_damage": {
-              "filters": [
-                {
-                  "test": "has_damage",
-                  "value": "fatal"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "player"
-                }
-              ],
+              "filters": {
+                "all_of": [
+                  { "test": "has_damage", "value": "fatal" },
+                  { "test": "is_family", "subject": "other", "value": "player" }
+                ]
+              },
               "event": "special_death_event",
               "target": "self"
             }
